@@ -59,7 +59,7 @@ class Producto
     {
         $lista = array();
 
-        $archivo = fopen("Productos/archivoProductos.txt", "r");
+        $archivo = fopen("../Ejercicio3/Productos/archivoProductos.txt", "r");
 
         while(!feof($archivo))
         {
