@@ -7,6 +7,20 @@ class Producto
     public $precio;
     public $ruta;
    
+   public function getNombre()
+   {
+       return $this->nombre;
+   }
+
+   public function getPrecio()
+   {
+       return $this->precio;
+   }
+
+   public function getRuta()
+   {
+       return $this->ruta;
+   }
 
     public function __construct($nom, $pre, $path)
     {
@@ -49,9 +63,18 @@ class Producto
 
         while(!feof($archivo))
         {
-            
+            $archAux = fgets($archivo);
+            $productos = explode(" - ", $archAux);
+            $productos[0] = trim($productos[0]);
+            if($productos[0]!="")
+                $lista[] = new Producto($productos[0], $productos[1], $productos[2]);
         }
+        fclose($archivo);
+        return $lista;
+
     }
+
+    
 
 
 
